@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Web App</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <p class="subtitle">Discover the sentiment behind Amazon product reviews</p>
+        <div class="form-container">
+            <label for="product_select">Choose a Product:</label>
+            <select id="product_select" name="product_name">
+                <option value="">Select a product</option>
+                {% for product in products %}
+                    <option value="{{ product }}">{{ product }}</option>
+                {% endfor %}
+            </select>
+            <button onclick="fetchSentiment()">Show Sentiment</button>
+        </div>
+        <div id="loading" class="loading hidden">Loading...</div>
+        <div id="results" class="results hidden"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
